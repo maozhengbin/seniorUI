@@ -5,4 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+    <color name="circle_gold">#f5d000</color>
+    <color name="circle_constellation">#8b572a</color>
+    <color name="nav_item_icon_tint_color">#333</color>
+    <color name="nav_item_text_color">#333</color>
 </resources>

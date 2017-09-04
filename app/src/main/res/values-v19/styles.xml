@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--<style name="AppDesignTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
+        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+        <!--<item name="colorPrimary">#2196F3</item>-->
+        <!--<item name="colorPrimaryDark">#1565C0</item>-->
+        <!--<item name="colorAccent">#E91E63</item>-->
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+        <!--&lt;!&ndash;//似乎可以取消底部虚拟键盘？&ndash;&gt;-->
+    <!--</style>-->
+
+
+</resources>

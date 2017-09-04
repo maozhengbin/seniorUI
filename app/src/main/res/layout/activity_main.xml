@@ -133,6 +133,7 @@
             app:pressedTranslationZ="12dp"
             app:rippleColor="@color/circle_constellation" />
     </android.support.design.widget.CoordinatorLayout>
+
     <android.support.design.widget.NavigationView
         android:layout_marginTop="?attr/actionBarSize"
         android:id="@+id/navigation"

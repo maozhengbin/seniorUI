@@ -1,14 +1,12 @@
-package com.travelto.maomao.travel_together.ui.recyclerview.holder;
+package com.example.maomao.myapplication.recycler;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.travelto.maomao.travel_together.R;
-import com.travelto.maomao.travel_together.data.dto.Discuss;
-import com.travelto.maomao.travel_together.ui.recyclerview.click.OnItemClickListener;
-import com.travelto.maomao.travel_together.util.other.InitHeard;
+import com.bumptech.glide.Glide;
+import com.example.maomao.myapplication.R;
 
 /**
  * Created by maomao on 2017/3/16.
@@ -29,9 +27,10 @@ public class DiscussHolder extends RecyclerView.ViewHolder implements View.OnCli
     }
 
     public void setData(Discuss discuss) {
-        discuss_tv_name.setText(discuss.getDiscuss());
-        InitHeard initHeard = new InitHeard(itemView.getContext());
-        initHeard.start(discuss_heard_icon, discuss.getUsernub());
+        discuss_tv_name.setText("userid："+discuss.getUser_id()+"，id："+discuss.getId()+",chatcomment:"+discuss.getChat_comment());
+        Glide.with(itemView.getContext()).load(discuss.getHeader_url()).asBitmap().into(discuss_heard_icon);
+//        InitHeard initHeard = new InitHeard();
+//        initHeard.start(discuss_heard_icon, discuss.getUsernub());
     }
 
 

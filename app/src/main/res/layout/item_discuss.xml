@@ -11,7 +11,7 @@
         android:id="@+id/discuss_heard_icon"
         android:layout_width="30dp"
         android:layout_height="match_parent"
-        android:background="@color/Grey_300" />
+        android:background="@color/black" />
 
     <TextView
         android:id="@+id/discuss_tv_name"

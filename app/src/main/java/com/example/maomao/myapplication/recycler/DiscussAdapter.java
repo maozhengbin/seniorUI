@@ -1,14 +1,11 @@
-package com.travelto.maomao.travel_together.ui.recyclerview.adapter;
+package com.example.maomao.myapplication.recycler;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.travelto.maomao.travel_together.R;
-import com.travelto.maomao.travel_together.data.dto.Discuss;
-import com.travelto.maomao.travel_together.ui.recyclerview.click.OnItemClickListener;
-import com.travelto.maomao.travel_together.ui.recyclerview.holder.DiscussHolder;
+import com.example.maomao.myapplication.R;
 
 import java.util.List;
 

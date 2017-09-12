@@ -13,5 +13,6 @@ package com.example.maomao.myapplication.recycler;
  */
 
 
-public class dto {
+public class Dto {
+    public String getTestString(){return "test";}
 }

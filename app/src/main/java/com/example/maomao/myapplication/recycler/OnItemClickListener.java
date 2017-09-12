@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.travelto.maomao.travel_together.ui.recyclerview.click;
+package com.example.maomao.myapplication.recycler;
 
 /**
  * Created by Yan Zhenjie on 2016/7/27.

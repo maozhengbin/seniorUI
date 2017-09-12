@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    android:padding="5dp"
+    android:gravity="center_vertical"
+    android:background="?selectableItemBackground"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/discuss_heard_icon"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:background="@color/Grey_300" />
+
+    <TextView
+        android:id="@+id/discuss_tv_name"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:text="dsadsadas"
+        android:textSize="15sp" />
+
+
+</LinearLayout>

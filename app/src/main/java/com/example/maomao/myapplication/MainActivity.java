@@ -33,10 +33,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     CollapsingToolbarLayout collapsingToolbarLayout;
-
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
-
     CoordinatorLayout rootLayout;
     FloatingActionButton fabBtn;
 
@@ -46,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT)
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        DataBaseHelper helper = new DataBaseHelper(this,"chat.db",null,1);
         initToolbar();
         initInstances();
     }
@@ -58,14 +57,11 @@ public class MainActivity extends AppCompatActivity {
     private void initInstances() {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         drawerToggle = new ActionBarDrawerToggle(MainActivity.this, drawerLayout, R.string.hello_world, R.string.hello_world);
-        drawerLayout.setDrawerListener(drawerToggle);
-
+        drawerLayout.addDrawerListener(drawerToggle);
         getSupportActionBar().setHomeButtonEnabled(true);
 //        左上角的返回键
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         rootLayout = (CoordinatorLayout) findViewById(R.id.rootLayout);
-
         fabBtn = (FloatingActionButton) findViewById(R.id.fabBtn);
         fabBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,14 +69,11 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(rootLayout, "Hello. I am Snackbar!", Snackbar.LENGTH_LONG)
                         .setAction("Undo1", new View.OnClickListener() {
                             @Override
-                            public void onClick(View v) {
-
-                            }
+                            public void onClick(View v) {}
                         })
                         .show();
             }
         });
-
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbarLayout);
         collapsingToolbarLayout.setTitle("Design Library");
     }
@@ -111,17 +104,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item))
             return true;
-
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Toast.makeText(this, "setting", Toast.LENGTH_SHORT).show();
-            return true;
-        }
         switch (id) {
             case R.id.action_settings:
                 Toast.makeText(this, "setting", Toast.LENGTH_SHORT).show();
@@ -129,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_info:
                 Toast.makeText(this, "info", Toast.LENGTH_SHORT).show();
                 break;
-
         }
         return super.onOptionsItemSelected(item);
     }

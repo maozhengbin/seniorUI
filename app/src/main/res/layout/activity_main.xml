@@ -74,6 +74,10 @@
                         android:layout_height="wrap_content"
                         android:hint="Password" />
                 </android.support.design.widget.TextInputLayout>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="增加"/>
 
                 <!--<include layout="@layout/long_content"/>-->
                 <TextView

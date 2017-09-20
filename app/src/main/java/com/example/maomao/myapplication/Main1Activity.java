@@ -8,13 +8,11 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.media.RatingCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -22,7 +20,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -50,7 +47,7 @@ import java.util.List;
  */
 
 
-public class MainActivity extends AppCompatActivity {
+public class Main1Activity extends AppCompatActivity {
     public static final String CHAT_TABLE = "chatTable";//表名
     public static final String CHAT_COMMENT = "chat_comment";
     public static final String HEADER_URL = "header_url";
@@ -65,14 +62,14 @@ public class MainActivity extends AppCompatActivity {
     private CoordinatorLayout rootLayout;
     private FloatingActionButton fabBtn;
     private SQLiteDatabase sqLiteDatabase;
-    private DataBaseHelper helper;
     private RecyclerView recycler;
     private SwipeRefreshLayout swipe_refresh;
     private DiscussAdapter adapter;
     private List<Discuss> dataList = new ArrayList<>();
     private int nowId = -1;
     private LinearLayoutManager layoutManager;
-    private RatingBar ratingBar;
+    private DataBaseHelper helper;
+
     private boolean isNoData= false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,10 +106,6 @@ public class MainActivity extends AppCompatActivity {
             recycler.setAdapter(adapter);
             MoveToPosition(layoutManager,recycler,10);
         });
-        ratingBar = (RatingBar) findViewById(R.id.ratingBar);
-        LayerDrawable layerDrawable = (LayerDrawable) ratingBar.getProgressDrawable();
-        layerDrawable.getDrawable(2).setColorFilter(ContextCompat.getColor(getBaseContext(),R.color.black), PorterDuff.Mode.SRC_ATOP);
-
     }
     public static void MoveToPosition(LinearLayoutManager manager, RecyclerView mRecyclerView, int n) {
 
@@ -160,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initInstances() {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        drawerToggle = new ActionBarDrawerToggle(MainActivity.this, drawerLayout, R.string.hello_world, R.string.hello_world);
+        drawerToggle = new ActionBarDrawerToggle(Main1Activity.this, drawerLayout, R.string.hello_world, R.string.hello_world);
         drawerLayout.addDrawerListener(drawerToggle);
         getSupportActionBar().setHomeButtonEnabled(true);
 //        左上角的返回键
@@ -221,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onAddClick1(View view) {
+    public void onAddClick(View view) {
 
         //update
         ContentValues contentValues = new ContentValues();
@@ -234,21 +227,11 @@ public class MainActivity extends AppCompatActivity {
         sqLiteDatabase.insert(CHAT_TABLE, null, contentValues);
 
     }
-    public void onAddClick2(View view) {
 
-        //update
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(CHAT_COMMENT, "毛毛的聊天内容啊啊啊啊");
-        contentValues.put(HEADER_URL, "http://diy.qqjay.com/u2/2012/0913/55a80cdb4fca56c77c12a38c079bf6ab.jpg");
-        contentValues.put(TIME, "" + System.currentTimeMillis());
-        contentValues.put(USER_ID, 709558);
-        contentValues.put(TO_USER_ID, 100000);
-
-        sqLiteDatabase.insert(CHAT_TABLE, null, contentValues);
-
-    }
     public void onInitDataClick(View view) {
         for (int i = 0; i < 10; i++) {
+
+
             ContentValues contentValues = new ContentValues();
             contentValues.put(CHAT_COMMENT, "comment" + i);
             contentValues.put(HEADER_URL, "header" + i);
